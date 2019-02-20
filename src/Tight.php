@@ -52,8 +52,12 @@ class Tight extends Container
         return new \Bramus\Router\Router();
     }
 
-    public function getInstance(string $instance): ?string
+    public function getInstance(?string $instance = null)
     {
+        if ($instance === null) {
+            return self::$instance;
+        }
+
         if (array_key_exists($instance, $this->instances)) {
             return $this->instances[$instance];
         }

@@ -28,3 +28,10 @@ if (function_exists('dd') === false) {
         die();
     }
 }
+
+if (! function_exists('app')) {
+    function app()
+    {
+        return Asdfx\Tight\Tight::getInstance();
+    }
+}
