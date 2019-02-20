@@ -17,13 +17,15 @@ if (function_exists('view') === false) {
 }
 
 if (function_exists('config') === false) {
-    function config($config) {
+    function config($config)
+    {
         return \Asdfx\Tight\Config::get($config);
     }
 }
 
 if (function_exists('dd') === false) {
-    function dd($var) {
+    function dd($var)
+    {
         dump($var);
         die();
     }

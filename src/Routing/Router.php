@@ -91,7 +91,13 @@ class Router
 
         foreach ($_SERVER as $name => $value) {
             if ((substr($name, 0, 5) == 'HTTP_') || ($name == 'CONTENT_TYPE') || ($name == 'CONTENT_LENGTH')) {
-                $headers[str_replace([' ', 'Http'], ['-', 'HTTP'], ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+                $headers[
+                    str_replace(
+                        [' ', 'Http'],
+                        ['-', 'HTTP'],
+                        ucwords(strtolower(str_replace('_', ' ', substr($name, 5))))
+                    )
+                ] = $value;
             }
         }
         return $headers;
@@ -107,7 +113,8 @@ class Router
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $headers = $this->getRequestHeaders();
-            if (isset($headers['X-HTTP-Method-Override']) && in_array($headers['X-HTTP-Method-Override'], ['PUT', 'DELETE', 'PATCH'])) {
+            if (isset($headers['X-HTTP-Method-Override'])
+                && in_array($headers['X-HTTP-Method-Override'], ['PUT', 'DELETE', 'PATCH'])) {
                 return $headers['X-HTTP-Method-Override'];
             }
         }
@@ -175,7 +182,9 @@ class Router
             if (preg_match_all('#^' . $route['pattern'] . '$#', $uri, $matches, PREG_OFFSET_CAPTURE)) {
                 $matches = array_slice($matches, 1);
                 $params = array_map(function ($match, $index) use ($matches) {
-                    if (isset($matches[$index + 1]) && isset($matches[$index + 1][0]) && is_array($matches[$index + 1][0])) {
+                    if (isset($matches[$index + 1])
+                        && isset($matches[$index + 1][0])
+                        && is_array($matches[$index + 1][0])) {
                         return trim(substr($match[0][0], 0, $matches[$index + 1][0][1] - $match[0][1]), '/');
                     }
 
@@ -209,7 +218,8 @@ class Router
 
             if (class_exists($controller)) {
                 if (call_user_func_array([new $controller(), $method], $parameters) === false) {
-                    if (forward_static_call_array([$controller, $method], $parameters) === false) ;
+                    if (forward_static_call_array([$controller, $method], $parameters) === false) {
+                    }
                 }
             }
         }
