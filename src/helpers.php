@@ -3,9 +3,9 @@
 if (function_exists('view') === false) {
     function view(string $template, array $parameters = [])
     {
-        $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../resources/views');
+        $loader = new \Twig\Loader\FilesystemLoader('../' . config('views.path'));
         $twig = new \Twig\Environment($loader, [
-            'cache' => __DIR__ . '/../storage/cache/views',
+            'cache' => '../' . config('views.cache'),
             'auto_reload' => true,
         ]);
         try {
@@ -16,6 +16,11 @@ if (function_exists('view') === false) {
     }
 }
 
+if (function_exists('config') === false) {
+    function config($config) {
+        return \Asdfx\Tight\Config::get($config);
+    }
+}
 
 if (function_exists('dd') === false) {
     function dd($var) {
