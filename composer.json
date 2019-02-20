@@ -21,7 +21,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Asdfx\\Tight": "src/"
+            "Asdfx\\Tight\\": "src/"
         }
     }
 }
