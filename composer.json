@@ -3,7 +3,6 @@
     "description": "The framework containing core code for the Tight framework",
     "type": "library",
     "require": {
-        "bramus/router": "^1.4",
         "twig/twig": "^2.6",
         "symfony/var-dumper": "^4.2"
     },
