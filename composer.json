@@ -24,7 +24,7 @@
             "Asdfx\\Tight\\": "src/"
         },
         "files": [
-            "app/helpers.php"
+            "src/helpers.php"
         ]
     }
 }
