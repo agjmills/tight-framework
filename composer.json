@@ -18,5 +18,10 @@
             "name": "Alex Mills",
             "email": "alex@asdfx.us"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Asdfx\\Tight": "src/"
+        }
+    }
 }
