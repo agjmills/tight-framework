@@ -22,6 +22,9 @@
     "autoload": {
         "psr-4": {
             "Asdfx\\Tight\\": "src/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     }
 }
