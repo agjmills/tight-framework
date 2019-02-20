@@ -3,6 +3,7 @@
 namespace Asdfx\Tight;
 
 use Asdfx\Tight\Container\Container;
+use Asdfx\Tight\Routing\Router;
 
 class Tight extends Container
 {
@@ -47,9 +48,9 @@ class Tight extends Container
         return $this->basePath . ($path ? DIRECTORY_SEPARATOR . $path : $path);
     }
 
-    public function getRouter()
+    public function getRouter(): Router
     {
-        return new \Bramus\Router\Router();
+        return new Router();
     }
 
     public function getInstance(?string $instance = null)
